@@ -14,8 +14,8 @@
         //    add an event listener to the bunny el. On click, delete the bunny, then refetch and redisplay all families.
         // append this bunnyEl to the bunniesEl
 
-import { displayFamilies } from "./families/families.js";
-import { deleteBunny } from "./fetch-utils.js";
+import { displayFamilies } from './families/families.js';
+import { deleteBunny } from './fetch-utils.js';
 
 export async function renderFamily(family) {
     const famDiv = document.createElement('div');
