@@ -10,13 +10,13 @@ logoutButton.addEventListener('click', () => {
     logout();
 });
 
-async function displayFamilies() {
+export async function displayFamilies() {
     // fetch families from supabase
     const families = await getFamilies();
     // clear out the familiesEl
     familiesEl.textContent = '';
     for (let family of families) {
-        familiesEl.append(renderFamily(family));
+        familiesEl.append(await renderFamily(family));
     }
 }
 

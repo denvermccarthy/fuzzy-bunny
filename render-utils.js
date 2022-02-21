@@ -14,7 +14,10 @@
         //    add an event listener to the bunny el. On click, delete the bunny, then refetch and redisplay all families.
         // append this bunnyEl to the bunniesEl
 
-export function renderFamily(family) {
+import { displayFamilies } from "./families/families.js";
+import { deleteBunny } from "./fetch-utils.js";
+
+export async function renderFamily(family) {
     const famDiv = document.createElement('div');
     famDiv.classList.add('family');
     
@@ -29,6 +32,11 @@ export function renderFamily(family) {
         const div = document.createElement('div');
         div.classList.add('bunny');
         div.textContent = element.name;
+        div.addEventListener('click', async () => {
+            // console.log(`clicked ${element.name} id: ${element.id}`);
+            await deleteBunny(element.id);
+            displayFamilies();
+        });
         bunniesDiv.append(div);
     });   
 

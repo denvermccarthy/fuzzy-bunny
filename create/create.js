@@ -19,8 +19,10 @@ form.addEventListener('submit', async (e) => {
         family_id: data.get('family-id')
     };
     // use createBunny to create a bunny with this name and family id
-    console.log(bunny);
+
+    await createBunny(bunny);
     form.reset();
+    location.replace('/families');
 });
 
 window.addEventListener('load', async () => {
